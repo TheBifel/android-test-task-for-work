@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#4f504f</color>
+    <color name="colorPrimaryForActions">#6e6e6e</color>
 </resources>

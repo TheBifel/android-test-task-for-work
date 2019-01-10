@@ -11,12 +11,6 @@ import com.bifel.testtaskforwork.R;
 
 public class Tab2 extends Fragment {
 
-    private static Tab2 INSTANCE = new Tab2();
-
-    public static Tab2 getInstance() {
-        return INSTANCE;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);

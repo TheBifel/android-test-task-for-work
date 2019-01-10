@@ -4,33 +4,29 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.bifel.testtaskforwork.screens.Tab1;
+import com.bifel.testtaskforwork.screens.tab1.Tab1;
 import com.bifel.testtaskforwork.screens.Tab2;
 import com.bifel.testtaskforwork.screens.Tab3;
 
 class PageAdapter extends FragmentPagerAdapter {
 
-    PageAdapter(FragmentManager fragmentManager) {
+    private final int numberOfTabs;
+    private final Fragment[] tabs;
+
+    PageAdapter(FragmentManager fragmentManager, int numberOfTabs) {
         super(fragmentManager);
+        this.numberOfTabs = numberOfTabs;
+        tabs = new Fragment[]{new Tab1(), new Tab2(), new Tab3()};
     }
 
     @Override
     public Fragment getItem(int i) {
-        switch (i) {
-            case 0:
-                return Tab1.getInstance();
-            case 1:
-                return Tab2.getInstance();
-            case 2:
-                return Tab3.getInstance();
-            default:
-                return null;
-        }
+        return tabs[i];
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return numberOfTabs;
     }
 
     @Override

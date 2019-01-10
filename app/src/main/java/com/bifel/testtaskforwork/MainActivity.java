@@ -16,11 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager());
+        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(), 3);
         viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(pageAdapter);
 
         pagerTabStrip = findViewById(R.id.pageMonitor);
-        pagerTabStrip.setTabIndicatorColor(Color.RED);
+        pagerTabStrip.setTabIndicatorColor(Color.BLACK);
     }
 }
