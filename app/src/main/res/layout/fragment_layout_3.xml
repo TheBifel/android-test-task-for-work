@@ -4,10 +4,52 @@
     android:id="@+id/activity_layout_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="@dimen/standardPadding"
     android:weightSum="1"
-    android:background="@android:color/black"
-    tools:context=".screens.Tab3">
+    tools:context=".screens.tab3.Tab3">
+
+    <EditText
+        android:id="@+id/txtURL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/txtHeight"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/txtMarginEnd"
+        android:background="@color/colorPrimaryForActions"
+        android:hint="@string/tab3_text_url"
+        android:inputType="text"
+        android:text="@string/default_link_for_zip"
+        tools:ignore="TextFields" />
+
+    <RelativeLayout
+        android:layout_width="@dimen/BtnDimens"
+        android:layout_height="@dimen/BtnDimens"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true">
+
+        <ProgressBar
+            android:id="@+id/progressBarDownload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btnDownload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/download_img"
+            android:backgroundTint="@color/colorPrimaryForActions"
+            android:textAllCaps="false" />
+    </RelativeLayout>
 
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/imgGallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/tab1ListMarginBottom"
+        android:fillViewport="true">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

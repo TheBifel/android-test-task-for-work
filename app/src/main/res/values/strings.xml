@@ -3,4 +3,7 @@
     <string name="btn_add_contact">Add</string>
     <string name="txt_contact_enter_name">Enter name</string>
     <string name="pop_up_contact_dialog_remove">Remove</string>
+    <string name="tab3_text_url">URL</string>
+    <string name="default_link_for_zip"><![CDATA[https://drive.google.com/uc?id=1Pkweef85E1s6miwNxZDX0IoSFR8wV2gd&export=download]]></string>
+    <string name="default_link_2_for_zip"><![CDATA[https://drive.google.com/uc?id=1xB1zT1AQAS9sCbZscFJwJeTPuf-DXnX1&export=download]]></string>
 </resources>

@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.bifel.testtaskforwork.screens.tab1.Tab1;
-import com.bifel.testtaskforwork.screens.Tab2;
-import com.bifel.testtaskforwork.screens.Tab3;
+import com.bifel.testtaskforwork.screens.tab2.Tab2;
+import com.bifel.testtaskforwork.screens.tab3.Tab3;
 
 class PageAdapter extends FragmentPagerAdapter {
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_chin">30dp</dimen>
+
+    <dimen name="standardPadding">5dp</dimen>
+    <dimen name="BtnDimens">50dp</dimen>
+    <dimen name="txtHeight">50dp</dimen>
+    <dimen name="txtMarginEnd">60dp</dimen>
+
+    <dimen name="tab1ListMarginBottom">55dp</dimen>
+
+    <dimen name="pop_up_contact_dialog_width">300dp</dimen>
+</resources>

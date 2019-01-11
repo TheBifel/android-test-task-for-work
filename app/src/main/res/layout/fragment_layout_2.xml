@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_layout_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
     android:background="@android:color/holo_green_dark"
-    tools:context=".screens.Tab2">
+    tools:context=".screens.tab2.Tab2">
 
-
-</RelativeLayout>
+    <com.lespinside.simplepanorama.view.SphericalView
+        android:id="@+id/spherical_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:enableZoom="false"
+        app:enableAccelerometer="true"/>
+</LinearLayout>
