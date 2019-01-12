@@ -31,13 +31,13 @@ public class Tab3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
-        final View view = inflater.inflate(R.layout.fragment_layout_3, container, false);
+        final View view = inflater.inflate(R.layout.fragment_zip_gallery, container, false);
 
-        recyclerView = view.findViewById(R.id.imgGallery);
+        recyclerView = view.findViewById(R.id.gallery);
 
-        final Button btnDownload = view.findViewById(R.id.btnDownload);
-        final EditText txtURL = view.findViewById(R.id.txtURL);
-        final View progressBar = view.findViewById(R.id.progressBarDownload);
+        final Button btnDownload = view.findViewById(R.id.btn_download_zip);
+        final EditText txtURL = view.findViewById(R.id.txt_url_for_zip);
+        final View progressBar = view.findViewById(R.id.progress_bar_download);
         final Context context = view.getContext();
         final GalleryAdapter adapter = new GalleryAdapter();
         final Handler handler = new Handler(context.getMainLooper());

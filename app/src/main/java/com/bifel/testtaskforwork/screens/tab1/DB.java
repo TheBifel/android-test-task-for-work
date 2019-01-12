@@ -33,7 +33,7 @@ public class DB {
             db.delete(TABLE_NAME, "id=" + contact.getSqlId() , null);
         }
 
-        contactList.applyChanges();
+        contactList.clearData();
     }
 
     public List<Contact> getRecords() {

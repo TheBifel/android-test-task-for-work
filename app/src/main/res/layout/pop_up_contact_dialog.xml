@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/pop_up_contact_dialog_width"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryForActions"
+    android:background="@color/color_primary"
+    android:padding="@dimen/standard_padding"
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btnRemove"
+        android:id="@+id/btn_remove_contact"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:background="@color/colorPrimaryForActions"
+        android:textSize="@dimen/pop_up_contact_dialog_text_size"
+        android:background="@color/color_primary_for_actions"
         android:text="@string/pop_up_contact_dialog_remove"
         android:textAllCaps="false"
         />

@@ -22,7 +22,7 @@ public class ContactDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.pop_up_contact_dialog);
 
-        final Button btnRemove = findViewById(R.id.btnRemove);
+        final Button btnRemove = findViewById(R.id.btn_remove_contact);
 
         btnRemove.setOnClickListener(new View.OnClickListener() {
             @Override

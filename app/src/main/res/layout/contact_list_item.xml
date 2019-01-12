@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:padding="5dp"
-    android:text="TextView"
-    android:textColor="#000"
-    android:textSize="24sp">
+    android:padding="@dimen/standard_padding"
+    android:text=""
+    android:textColor="@color/black"
+    android:textSize="@dimen/contact_list_item_text_size">
 </TextView>

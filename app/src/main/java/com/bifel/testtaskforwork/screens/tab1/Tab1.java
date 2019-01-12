@@ -14,8 +14,6 @@ import android.widget.EditText;
 
 import com.bifel.testtaskforwork.R;
 
-import java.util.Arrays;
-
 public class Tab1 extends Fragment {
 
     private ContactList contactList;
@@ -23,16 +21,19 @@ public class Tab1 extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState) {
-        super.onCreate(saveInstanceState);
+        super.onCreateView(inflater, container, saveInstanceState);
 
-        final View view = inflater.inflate(R.layout.fragment_layout_1, container, false);
+        final View view = inflater.inflate(R.layout.fragment_contact_list, container, false);
         final Context context = view.getContext();
-        final EditText txtContact = view.findViewById(R.id.txtContact);
-        final Button btnAddContact = view.findViewById(R.id.btnAddContact);
+        final EditText txtContact = view.findViewById(R.id.txt_contact_name);
+        final Button btnAddContact = view.findViewById(R.id.btn_add_contact);
 
-        db = new DB(context);
-
-        contactList = new ContactList(view, context);
+        if (db == null) {
+            db = new DB(context);
+        }
+        if (contactList == null) {
+            contactList = new ContactList(view, context);
+        }
 
         final ContactDialog contactDialog = new ContactDialog(context, contactList);
 
@@ -51,7 +52,6 @@ public class Tab1 extends Fragment {
                 return true;
             }
         });
-
         return view;
     }
 

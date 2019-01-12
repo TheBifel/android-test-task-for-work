@@ -2,12 +2,16 @@
 <resources>
     <dimen name="activity_chin">30dp</dimen>
 
-    <dimen name="standardPadding">5dp</dimen>
-    <dimen name="BtnDimens">50dp</dimen>
-    <dimen name="txtHeight">50dp</dimen>
-    <dimen name="txtMarginEnd">60dp</dimen>
+    <dimen name="standard_padding">5dp</dimen>
+    <dimen name="btn_dimens">50dp</dimen>
+    <dimen name="txt_height">50dp</dimen>
+    <dimen name="txt_margin_end">60dp</dimen>
 
-    <dimen name="tab1ListMarginBottom">55dp</dimen>
+    <dimen name="tab1_list_margin_bottom">55dp</dimen>
 
     <dimen name="pop_up_contact_dialog_width">300dp</dimen>
+    <dimen name="pop_up_contact_dialog_text_size">30sp</dimen>
+
+
+    <dimen name="contact_list_item_text_size">24sp</dimen>
 </resources>

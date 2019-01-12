@@ -25,8 +25,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
     @NonNull
     @Override
     public GalleryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cell_layout, viewGroup, false);
-        return new ViewHolder(view);
+        return new ViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.img_cell_layout, viewGroup, false));
     }
 
     @Override

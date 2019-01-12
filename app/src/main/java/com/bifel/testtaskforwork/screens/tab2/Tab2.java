@@ -1,6 +1,5 @@
 package com.bifel.testtaskforwork.screens.tab2;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,19 +14,16 @@ import com.panoramagl.utils.PLUtils;
 
 public class Tab2 extends Fragment {
 
-    //    private RotationManager rotationManager;
     private SphericalView sphericalView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState) {
         super.onCreate(saveInstanceState);
-        View view = inflater.inflate(R.layout.fragment_layout_2, container, false);
-//        Context context = view.getContext();
-//        rotationManager = new RotationManager(context);
+        View view = inflater.inflate(R.layout.fragment_panorama, container, false);
 
         sphericalView = view.findViewById(R.id.spherical_view);
+        sphericalView.setAccelerometerEnabled(true);
         sphericalView.setPanorama(PLUtils.getBitmap(view.getContext(), R.drawable.pic1), false);
-
         return view;
     }
 
@@ -35,14 +31,12 @@ public class Tab2 extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-//        rotationManager.start();
         sphericalView.onResume();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-//        rotationManager.stop();
         sphericalView.onPause();
     }
 

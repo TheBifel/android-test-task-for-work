@@ -13,17 +13,17 @@ import java.util.Collection;
 import java.util.List;
 
 public class ContactList {
+
     private ArrayAdapter<Contact> adapterContactList;
     private List<Contact> contacts = new ArrayList<>();
-
     private List<Contact> contactsToRemove = new ArrayList<>();
     private List<Contact> contactsToAdd = new ArrayList<>();
 
     private ListView viewContactList;
 
     public ContactList(View view, final Context context) {
-        adapterContactList = new ArrayAdapter<>(context, R.layout.list_item, contacts);
-        viewContactList = view.findViewById(R.id.contactList);
+        adapterContactList = new ArrayAdapter<>(context, R.layout.contact_list_item, contacts);
+        viewContactList = view.findViewById(R.id.contact_list);
         viewContactList.setAdapter(adapterContactList);
     }
 
@@ -59,7 +59,7 @@ public class ContactList {
         return contactsToAdd;
     }
 
-    public void applyChanges(){
+    public void clearData(){
         contactsToAdd = new ArrayList<>();
         contactsToRemove = new ArrayList<>();
     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4f504f</color>
-    <color name="colorPrimaryForActions">#6e6e6e</color>
+    <color name="color_primary">#4f504f</color>
+    <color name="color_primary_for_actions">#6e6e6e</color>
+    <color name="black">#000</color>
 </resources>
