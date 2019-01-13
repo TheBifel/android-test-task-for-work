@@ -1,5 +1,6 @@
 package com.bifel.testtaskforwork.screens.tab3;
 
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
@@ -12,21 +13,24 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 
+import static com.bifel.testtaskforwork.screens.tab3.FileHelper.getDownloadedFiles;
+import static com.bifel.testtaskforwork.screens.tab3.FileHelper.transformFilesToImgBitmap;
 import static com.bifel.testtaskforwork.screens.tab3.FileHelper.unpackZip;
 
-final class  FileDownloader extends AsyncTask<String, String, String> {
+final class FileDownloader extends AsyncTask<String, String, String> {
 
-    private final DownloadCompleteListener downloadCompleteListener;
+    private final PhotoPreparedListener photoPreparedListener;
     private final DownloadingListener downloadingListener;
     private static final String FILE_NAME = "file.zip";
 
     public static final String FOLDER_NAME = Environment.getExternalStorageDirectory() + File.separator + "testForWork" + File.separator;
 
-    public FileDownloader(DownloadCompleteListener downloadCompleteListener,
+    public FileDownloader(PhotoPreparedListener photoPreparedListener,
                           DownloadingListener downloadingListener) {
 
-        this.downloadCompleteListener = downloadCompleteListener;
+        this.photoPreparedListener = photoPreparedListener;
         this.downloadingListener = downloadingListener;
     }
 
@@ -76,12 +80,17 @@ final class  FileDownloader extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String message) {
-        downloadCompleteListener.onDownloadComplete(unpackZip(FOLDER_NAME, FILE_NAME));
-        downloadingListener.showDownloading(false);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                photoPreparedListener.onPhotoPrepared(transformFilesToImgBitmap(unpackZip(FOLDER_NAME, FILE_NAME)));
+                downloadingListener.showDownloading(false);
+            }
+        }).start();
     }
 
-    interface DownloadCompleteListener {
-        void onDownloadComplete(File[] files);
+    interface PhotoPreparedListener {
+        void onPhotoPrepared(List<Bitmap> files);
     }
 
     interface DownloadingListener {

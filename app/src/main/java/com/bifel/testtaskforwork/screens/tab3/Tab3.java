@@ -1,6 +1,7 @@
 package com.bifel.testtaskforwork.screens.tab3;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -15,16 +16,18 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.bifel.testtaskforwork.R;
-import com.bifel.testtaskforwork.screens.tab3.FileDownloader.DownloadCompleteListener;
 import com.bifel.testtaskforwork.screens.tab3.FileDownloader.DownloadingListener;
+import com.bifel.testtaskforwork.screens.tab3.FileDownloader.PhotoPreparedListener;
 
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
+import static com.bifel.testtaskforwork.screens.tab3.FileHelper.getDownloadedFiles;
 import static com.bifel.testtaskforwork.screens.tab3.FileHelper.transformFilesToImgBitmap;
 
 public final class Tab3 extends Fragment {
 
-    private DownloadCompleteListener downloadCompleteListener;
+    private PhotoPreparedListener photoPreparedListener;
     private RecyclerView recyclerView;
 
 
@@ -42,12 +45,16 @@ public final class Tab3 extends Fragment {
         final GalleryAdapter adapter = new GalleryAdapter();
         final Handler handler = new Handler(context.getMainLooper());
 
-        downloadCompleteListener = new DownloadCompleteListener() {
+        photoPreparedListener = new PhotoPreparedListener() {
             @Override
-            public void onDownloadComplete(File[] files) {
-                adapter.setGalleryList(transformFilesToImgBitmap(files));
-                recyclerView.setAdapter(adapter);
-
+            public void onPhotoPrepared(final List<Bitmap> photos) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.setGalleryList(photos);
+                        recyclerView.setAdapter(adapter);
+                    }
+                });
             }
         };
 
@@ -76,12 +83,24 @@ public final class Tab3 extends Fragment {
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FileDownloader(downloadCompleteListener, downloadingListener)
+                new FileDownloader(photoPreparedListener, downloadingListener)
                         .execute(txtURL.getText().toString());
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                photoPreparedListener.onPhotoPrepared(transformFilesToImgBitmap(getDownloadedFiles()));
+            }
+        });
+        thread.start();
     }
 
     @Override

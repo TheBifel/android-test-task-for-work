@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -20,7 +21,7 @@ public final class FileHelper {
 
     private FileHelper() {}
 
-    public static File[] unpackZip(String path, String zipName) {
+    public static List<File> unpackZip(String path, String zipName) {
         InputStream is;
         ZipInputStream zis;
         List<File> files = new ArrayList<>();
@@ -55,11 +56,10 @@ public final class FileHelper {
 
         new File(path + zipName).delete();
 
-        File[] result = new File[files.size()];
-        return files.toArray(result);
+        return files;
     }
 
-    public static List<Bitmap> transformFilesToImgBitmap(File[] files) {
+    public static List<Bitmap> transformFilesToImgBitmap(List<File> files) {
         List<Bitmap> imagines = new ArrayList<>();
         for (File file : files) {
             String name = file.getName();
@@ -74,6 +74,20 @@ public final class FileHelper {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG , 20, out);
         return BitmapFactory.decodeStream(new ByteArrayInputStream(out.toByteArray()));
+    }
+
+    public static List<File> getDownloadedFiles(){
+        File folder = new File(FileDownloader.FOLDER_NAME);
+        List<File> res = new ArrayList<>();
+        if ((!folder.exists() || !folder.isDirectory())){
+            return res;
+        }
+        for (final File file : folder.listFiles()) {
+            if (!file.isDirectory()) {
+                res.add(file);
+            }
+        }
+        return res;
     }
 
 }
