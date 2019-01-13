@@ -14,7 +14,7 @@ import java.util.List;
 
 import static com.bifel.testtaskforwork.screens.tab3.FileHelper.compressBitmap;
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
+public final class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
 
     private List<Bitmap> galleryList;
 

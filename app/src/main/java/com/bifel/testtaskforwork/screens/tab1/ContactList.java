@@ -1,18 +1,15 @@
 package com.bifel.testtaskforwork.screens.tab1;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import com.bifel.testtaskforwork.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ContactList {
+public final class ContactList {
 
     private ArrayAdapter<Contact> adapterContactList;
     private List<Contact> contacts = new ArrayList<>();
@@ -21,9 +18,9 @@ public class ContactList {
 
     private ListView viewContactList;
 
-    public ContactList(View view, final Context context) {
-        adapterContactList = new ArrayAdapter<>(context, R.layout.contact_list_item, contacts);
-        viewContactList = view.findViewById(R.id.contact_list);
+    public ContactList(Context context, ListView listView, int listItemViewId) {
+        adapterContactList = new ArrayAdapter<>(context, listItemViewId, contacts);
+        viewContactList = listView;
         viewContactList.setAdapter(adapterContactList);
     }
 

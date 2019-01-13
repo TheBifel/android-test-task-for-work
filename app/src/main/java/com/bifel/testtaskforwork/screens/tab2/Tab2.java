@@ -12,7 +12,7 @@ import com.bifel.testtaskforwork.R;
 import com.lespinside.simplepanorama.view.SphericalView;
 import com.panoramagl.utils.PLUtils;
 
-public class Tab2 extends Fragment {
+public final class Tab2 extends Fragment {
 
     private SphericalView sphericalView;
 

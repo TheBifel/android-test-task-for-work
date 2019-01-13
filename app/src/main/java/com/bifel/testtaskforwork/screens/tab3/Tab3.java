@@ -22,7 +22,7 @@ import java.io.File;
 
 import static com.bifel.testtaskforwork.screens.tab3.FileHelper.transformFilesToImgBitmap;
 
-public class Tab3 extends Fragment {
+public final class Tab3 extends Fragment {
 
     private DownloadCompleteListener downloadCompleteListener;
     private RecyclerView recyclerView;

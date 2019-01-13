@@ -9,18 +9,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DB {
+public final class ContactRepositorySQL implements ContactRepository {
 
     DBHelper dbHelper;
     SQLiteDatabase db;
 
     private static final String TABLE_NAME = "contacts_table";
 
-    public DB(Context context) {
+    ContactRepositorySQL(Context context) {
         dbHelper = new DBHelper(context);
         db = dbHelper.getWritableDatabase();
     }
 
+    @Override
     public void saveRecords(ContactList contactList) {
         ContentValues cv = new ContentValues();
 
@@ -36,6 +37,7 @@ public class DB {
         contactList.clearData();
     }
 
+    @Override
     public List<Contact> getRecords() {
         List<Contact> list = new ArrayList<>();
         Cursor c = db.query(TABLE_NAME, null, null, null, null, null, null);
@@ -52,7 +54,7 @@ public class DB {
         return list;
     }
 
-    public void onDestroy() {
+    public void close() {
         dbHelper.close();
     }
 

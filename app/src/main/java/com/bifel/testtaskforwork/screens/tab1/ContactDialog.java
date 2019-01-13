@@ -1,6 +1,5 @@
 package com.bifel.testtaskforwork.screens.tab1;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
@@ -11,11 +10,10 @@ import android.widget.Toast;
 import com.bifel.testtaskforwork.R;
 
 
-public class ContactDialog extends Dialog {
+public final class ContactDialog extends Dialog {
 
     private int position;
 
-    @SuppressLint("ClickableViewAccessibility")
     public ContactDialog(final Context context, final ContactList contactList) {
         super(context);
 

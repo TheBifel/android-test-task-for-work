@@ -15,7 +15,7 @@ import java.net.URLConnection;
 
 import static com.bifel.testtaskforwork.screens.tab3.FileHelper.unpackZip;
 
-class FileDownloader extends AsyncTask<String, String, String> {
+final class  FileDownloader extends AsyncTask<String, String, String> {
 
     private final DownloadCompleteListener downloadCompleteListener;
     private final DownloadingListener downloadingListener;
